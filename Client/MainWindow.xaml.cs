@@ -96,6 +96,10 @@ namespace Client
 				FilterAndSort((SortType)User.Default.CurrentSort);
 
 				lbTasks.Focus();
+
+				string startupFile = ((App)App.Current).StartupFile;
+				if (!string.IsNullOrEmpty(startupFile))
+					LoadTasks(startupFile);
 			}
 			catch (Exception ex)
 			{
@@ -263,7 +267,6 @@ namespace Client
 				i.IsChecked = false;
 
 			item.IsChecked = true;
-
 		}
 
 		private void LoadTasks(string filePath)
